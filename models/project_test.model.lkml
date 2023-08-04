@@ -3,7 +3,7 @@ connection: "thelook"
 
 # include all the views
 include: "/views/**/*.view"
-
+include: "/Lookmldashboard/tile.dashboard.lookml"
 # Datagroups define a caching policy for an Explore. To learn more,
 # use the Quick Help panel on the right to see documentation.
 
@@ -124,6 +124,11 @@ explore: orders {
 }
 
 explore: order_items {
+  access_filter: {
+    field: orders.status
+    user_attribute: test
+  }
+
   join: orders {
     type: left_outer
     sql_on: ${order_items.order_id} = ${orders.id} ;;
