@@ -29,18 +29,28 @@ view: orders {
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-	id,
-	users.id,
-	users.first_name,
-	users.last_name,
-	billion_orders.count,
-	fakeorders.count,
-	hundred_million_orders.count,
-	hundred_million_orders_wide.count,
-	order_items.count,
-	order_items_vijaya.count,
-	ten_million_orders.count
-	]
+  id,
+  users.id,
+  users.first_name,
+  users.last_name,
+  billion_orders.count,
+  fakeorders.count,
+  hundred_million_orders.count,
+  hundred_million_orders_wide.count,
+  order_items.count,
+  order_items_vijaya.count,
+  ten_million_orders.count
+  ]
   }
-
+  }
+  test: order_id_is_unique {
+    explore_source: orders {
+      column: id {}
+      column: count {}
+      sorts: [orders.count: desc]
+      limit: 1
+    }
+    assert: order_id_is_unique {
+      expression: ${orders.count} = 1 ;;
+    }
 }
