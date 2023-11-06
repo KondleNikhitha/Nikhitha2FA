@@ -12,10 +12,6 @@ view: order_items {
     # hidden: yes
     sql: ${TABLE}.inventory_item_id ;;
   }
-  measure: sum_of_saleprice {
-    type: sum
-    sql: ${sale_price} ;;
-  }
   dimension: order_id {
     type: number
     # hidden: yes
