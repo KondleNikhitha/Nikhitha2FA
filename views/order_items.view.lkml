@@ -30,6 +30,10 @@ view: order_items {
     type: string
     sql: ${TABLE}.phones ;;
   }
+  measure: count_of_ids {
+    type: count_distinct
+    sql: ${order_id} ;;
+  }
   dimension_group: returned {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
