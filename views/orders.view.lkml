@@ -21,6 +21,10 @@ view: orders {
     # hidden: yes
     sql: ${TABLE}.user_id ;;
   }
+  measure: status_count {
+    type: count_distinct
+    sql: ${status}='complete' ;;
+  }
   measure: count {
     type: count
     drill_fields: [detail*]
