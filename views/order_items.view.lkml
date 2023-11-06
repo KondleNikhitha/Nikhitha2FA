@@ -16,6 +16,7 @@ view: order_items {
     type: sum
     sql: ${sale_price} ;;
   }
+
   dimension: order_id {
     type: number
     # hidden: yes
