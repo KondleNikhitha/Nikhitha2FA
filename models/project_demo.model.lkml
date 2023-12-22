@@ -110,6 +110,10 @@ explore: orders {
 }
 
 explore: order_items {
+  # always_filter: {
+  #   orders.status:"pending"
+  #   }
+
   join: orders {
     type: left_outer
     sql_on: ${order_items.order_id} = ${orders.id} ;;

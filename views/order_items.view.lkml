@@ -4,8 +4,17 @@ view: order_items {
 
   dimension: id {
     primary_key: yes
-    type: number
+    type: string
+   # type: number
     sql: ${TABLE}.id ;;
+  }
+  measure: count_of_primary {
+    type: count
+    drill_fields: [id]
+  }
+  measure: distinct_count_of_primary {
+    type: count_distinct
+    sql: ${id} ;;
   }
   dimension: inventory_item_id {
     type: number
