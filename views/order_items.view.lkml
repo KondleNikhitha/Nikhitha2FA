@@ -12,6 +12,21 @@ view: order_items {
     type: number
     sql: ${TABLE}.id ;;
   }
+  parameter: currency {
+    allowed_value: {
+      label: "Raw"
+      value: "raw"
+    }
+    allowed_value: {
+      label: "Euro"
+      value: "eur"
+    }
+    allowed_value: {
+      label: "US Dollar"
+      value: "usd"
+    }
+  }
+
 
   # Here's what a typical dimension looks like in LookML.
   # A dimension is a groupable field that can be used to filter query results.

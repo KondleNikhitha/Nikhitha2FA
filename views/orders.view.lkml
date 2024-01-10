@@ -29,6 +29,21 @@ view: orders {
     ]
     sql: ${TABLE}.created_at ;;
   }
+  parameter: statuse {
+    allowed_value: {
+      label: "complete"
+      value: "complete"
+    }
+    allowed_value: {
+      label: "pending"
+      value: "pending"
+    }
+    allowed_value: {
+      label: "cancelled"
+      value: "cancelled"
+    }
+  }
+
 
   # Here's what a typical dimension looks like in LookML.
   # A dimension is a groupable field that can be used to filter query results.

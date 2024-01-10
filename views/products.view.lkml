@@ -25,7 +25,13 @@ view: products {
   dimension: category {
     type: string
     sql: ${TABLE}.category ;;
+    drill_fields: [category,category_sum]
   }
+  measure: category_sum {
+    type: sum
+    sql: ${brand}-5 ;;
+  }
+
 
   dimension: department {
     type: string
